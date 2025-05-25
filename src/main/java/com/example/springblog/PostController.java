@@ -15,19 +15,15 @@ import java.util.List;
 @RequestMapping("api/v1/posts")
 public class PostController {
 
+    private final PostService postService;
+
+    public PostController(PostService postService) {
+        this.postService = postService;
+    }
+
     @GetMapping
     public List<Post> getPosts() {
-        return List.of(
-                new Post(
-                        LocalDateTime.now(),
-                        1,
-                        "Pierwszy post",
-                        "WItam w 1 poscie",
-                        1,
-                        LocalDateTime.now()
-                        )
-
-        );
+        return postService.getAllPosts();
 
     }
 

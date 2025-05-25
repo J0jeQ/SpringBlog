@@ -1,10 +1,19 @@
 package com.example.springblog;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Objects;
 
+@Entity
 public class Post {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String title;
     private String content;
@@ -12,9 +21,9 @@ public class Post {
     private LocalDateTime created_at;
     private LocalDateTime updated_at;
 
-//    public Post() {
-//
-//    }
+    public Post() {
+
+    }
 
     public Post(LocalDateTime updated_at, Integer id,
                 String title, String content, Integer author_id,
