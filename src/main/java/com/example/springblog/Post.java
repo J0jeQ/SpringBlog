@@ -25,15 +25,15 @@ public class Post {
 
     }
 
-    public Post(LocalDateTime updated_at, Integer id,
+    public Post(Integer id,
                 String title, String content, Integer author_id,
-                LocalDateTime created_at) {
-        this.updated_at = updated_at;
+                LocalDateTime created_at,LocalDateTime updated_at) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.author_id = author_id;
         this.created_at = created_at;
+        this.updated_at = updated_at;
     }
 
     public Integer getId() {

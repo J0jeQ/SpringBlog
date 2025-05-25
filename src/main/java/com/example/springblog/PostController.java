@@ -1,9 +1,7 @@
 package com.example.springblog;
 
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -24,7 +22,13 @@ public class PostController {
     @GetMapping
     public List<Post> getPosts() {
         return postService.getAllPosts();
-
     }
-
+    @GetMapping("{id}")
+    public Post getPostsById(@PathVariable Integer id) {
+        return postService.getPostsById(id);
+    }
+    @PostMapping
+    public void addNewPost(@RequestBody Post post) {
+        postService.insertPost(post);
+    }
 }
